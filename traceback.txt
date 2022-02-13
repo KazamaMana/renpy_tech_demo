@@ -1,0 +1,110 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 39, in script
+    Mineo "Some descriptions of this features mention coding terms, ask your programming staff for more info or you can read the Ren'Py documentation & tutorial resources"
+  File "game/ActionEditor.rpy", line 1695, in open_action_editor
+    renpy.call_screen("_action_editor")
+  File "game/ActionEditor_screens.rpy", line 592, in execute
+    screen _action_editor(tab="camera", layer="master", opened=0, time=0, page=0):
+  File "game/ActionEditor_screens.rpy", line 592, in execute
+    screen _action_editor(tab="camera", layer="master", opened=0, time=0, page=0):
+  File "game/ActionEditor_screens.rpy", line 669, in execute
+    frame:
+  File "game/ActionEditor_screens.rpy", line 673, in execute
+    has vbox
+  File "game/ActionEditor_screens.rpy", line 717, in execute
+    if tab == "camera":
+  File "game/ActionEditor_screens.rpy", line 765, in execute
+    for p, d in _viewers.transform_props:
+  File "game/ActionEditor_screens.rpy", line 766, in execute
+    if p in props_set[opened] and (p not in props_groups["focusing"] and (((persistent._viewer_focusing
+  File "game/ActionEditor_screens.rpy", line 770, in execute
+    $value = get_property(key)
+  File "game/ActionEditor_screens.rpy", line 770, in <module>
+    $value = get_property(key)
+  File "game/ActionEditor.rpy", line 811, in get_property
+    state = get_image_state(layer, scene_num)[tag]
+KeyError: u'Mineo'
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 39, in script
+    Mineo "Some descriptions of this features mention coding terms, ask your programming staff for more info or you can read the Ren'Py documentation & tutorial resources"
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/ast.py", line 736, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/exports.py", line 1419, in say
+    who(what, *args, **kwargs)
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/character.py", line 1239, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/character.py", line 903, in do_display
+    **display_args)
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/character.py", line 647, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/ui.py", line 298, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/core.py", line 3342, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/core.py", line 4179, in interact_core
+    rv = root_widget.event(ev, x, y, 0)
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/layout.py", line 1117, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/behavior.py", line 469, in event
+    rv = run(action)
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/behavior.py", line 326, in run
+    return action(*args, **kwargs)
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/curry.py", line 49, in __call__
+    return self.callable(*(self.args + args), **merged_kwargs)
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/game.py", line 285, in invoke_in_new_context
+    return callable(*args, **kwargs)
+  File "game/ActionEditor.rpy", line 1695, in open_action_editor
+    renpy.call_screen("_action_editor")
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/exports.py", line 3145, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/ui.py", line 298, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/core.py", line 3342, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/core.py", line 3754, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/core.py", line 574, in visit_all
+    d.visit_all(callback, seen)
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/core.py", line 574, in visit_all
+    d.visit_all(callback, seen)
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/core.py", line 574, in visit_all
+    d.visit_all(callback, seen)
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/screen.py", line 437, in visit_all
+    callback(self)
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/core.py", line 3754, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/screen.py", line 448, in per_interact
+    self.update()
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/screen.py", line 638, in update
+    self.screen.function(**self.scope)
+  File "game/ActionEditor_screens.rpy", line 592, in execute
+    screen _action_editor(tab="camera", layer="master", opened=0, time=0, page=0):
+  File "game/ActionEditor_screens.rpy", line 592, in execute
+    screen _action_editor(tab="camera", layer="master", opened=0, time=0, page=0):
+  File "game/ActionEditor_screens.rpy", line 669, in execute
+    frame:
+  File "game/ActionEditor_screens.rpy", line 673, in execute
+    has vbox
+  File "game/ActionEditor_screens.rpy", line 717, in execute
+    if tab == "camera":
+  File "game/ActionEditor_screens.rpy", line 765, in execute
+    for p, d in _viewers.transform_props:
+  File "game/ActionEditor_screens.rpy", line 766, in execute
+    if p in props_set[opened] and (p not in props_groups["focusing"] and (((persistent._viewer_focusing
+  File "game/ActionEditor_screens.rpy", line 770, in execute
+    $value = get_property(key)
+  File "game/ActionEditor_screens.rpy", line 770, in <module>
+    $value = get_property(key)
+  File "game/ActionEditor.rpy", line 811, in get_property
+    state = get_image_state(layer, scene_num)[tag]
+KeyError: u'Mineo'
+
+Linux-5.13.0-28-generic-x86_64-with-debian-bullseye-sid
+Ren'Py 7.5.0.22021101n
+featureDemoProject 1.0
+Sun Feb 13 13:34:46 2022
