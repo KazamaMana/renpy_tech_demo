@@ -140,7 +140,46 @@ label start:
         subpixel True 
         pos (0.63, 0.17)
 
-    aiji "This code snippet show that mineo was called first on the script, and then aiji, by default it means aiji will display over mineo on the screen"
+    aiji "This code snippet can let us know that mineo was called first on the script, and then aiji, by default it means aiji will display over mineo on the screen"
+
+    hide code_sample_1
+    hide mineo
+
+    show mineo neutral2:
+        subpixel True 
+        zoom 0.7
+        xpos 90
+        ypos 12
+
+    show code_sample_2 with dissolve:
+        subpixel True 
+        pos (0.63, 0.17)
+
+    mineo "By calling mineo again on the script, it display on top of it again"
+
+    mineo "This can be used to focus on one character from a group while they are talking"
+
+    hide aiji 
+    hide code_sample_2
+    show aiji closedeyes:
+        subpixel True 
+        zoom 0.7
+        xpos 270
+        ypos 12
+    aiji "With basic position figured out, we can move to the rest of the image manipulation features"
+
+    window auto hide
+    show aiji concernedopenmouth:
+        subpixel True 
+        xpos 270 
+        linear 0.5 xpos 600 
+    with Pause(0.5)
+    show aiji concernedopenmouth:
+        xpos 600
+    window auto show
+
+    mineo "Image movement across the screen can be used to represent character movement across an scene, this can be in any direction and with any desirable speed"
+    
 
 
     return

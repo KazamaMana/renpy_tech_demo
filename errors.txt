@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 141: Line is indented, but the preceding show statement statement does not expect a block. Please check this line's indentation.
-    aiji "This code snippet show that mineo was displayed first, and then aiji, by default it means aiji will display over mineo"
+File "game/script.rpy", line 184: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
+    return
     ^
 
 Ren'Py Version: Ren'Py 7.5.0.22021101n
-Sun Feb 13 22:13:19 2022
+Sun Feb 13 23:54:53 2022
