@@ -128,3 +128,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 game/.vscode/settings.json
+.vscode/settings.json
