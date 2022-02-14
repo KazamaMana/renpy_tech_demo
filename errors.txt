@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 141: Line is indented, but the preceding show statement statement does not expect a block. Please check this line's indentation.
+    aiji "This code snippet show that mineo was displayed first, and then aiji, by default it means aiji will display over mineo"
+    ^
+
+Ren'Py Version: Ren'Py 7.5.0.22021101n
+Sun Feb 13 22:13:19 2022
