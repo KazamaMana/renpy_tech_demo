@@ -4,8 +4,8 @@
 
 define pov = Character("[povname]")
 
-define mineo = Character("Mineo",image='mineo')
-define aiji = Character("Aiji",image='aiji')
+define mineo = Character("Mineo",image='mineo',color="#e06666")
+define aiji = Character("Aiji",image='aiji',color="#999999")
 
 # The game starts here.
 
@@ -21,15 +21,7 @@ label start:
             povname = "Kindred"
     pov "My name is [povname]!"
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
     scene bg outside with fade
-
-    #For image display you can either use at center, left, right tags or at Position and the respective arguments for it
-
-
 
     show mineo neutralopensoft with dissolve:
         subpixel True 
@@ -39,19 +31,64 @@ label start:
 
     # Text styling module
 
-    mineo "This is a demo to showcase the features of Ren'py for future reference, I recommend you to not rush click the text to read, as some effects depend on the speed and such" #SCENE 01
+    mineo "This is a demo to showcase the features of Ren'py for future reference, I recommend you to not speed through this demo, as some effects depend on the wait times and such" #SCENE 01
 
     mineo "So be patient while reading this demo project"
 
     mineo "Some descriptions of this features mention coding terms, ask your programming staff for more info or you can read the Ren'Py documentation & tutorial resources"
 
-    mineo "I'll demonstrate text style first."
+    mineo "What do you wanna learn?"
+
+    hide mineo 
+    show mineo neutralopensoft:
+        subpixel True 
+        zoom 0.7
+        xpos 90
+        ypos 12
+        matrixcolor InvertMatrix(0.0)*ContrastMatrix(0.7)*SaturationMatrix(0.7)*BrightnessMatrix(-0.2)*HueMatrix(0.0)
+
+    menu:
+        "Text style":
+            jump text_styles
+        "Image manipulation":
+            jump image_manipulation
+        "Music and sfx":
+            pass
+        "Translation features":
+            pass
+        "User interface":
+            pass
+
+label text_styles:
+
+    show mineo neutralopensoft with dissolve:
+        subpixel True 
+        zoom 0.7
+        xpos 90
+        ypos 12
+
+    mineo "Text style:"
 
     mineo "The first thing I would like to talk about is the input command, a lot of VNs out there let the player name their character,is good to know it exists"
 
     mineo "If I wanted to address the player I only need to define the {b}playername{/b} variable and then call it on the dialogue, do you understand {b}[pov]{/b}?"
 
+    hide mineo 
+    show mineo neutralopensoft:
+        subpixel True 
+        zoom 0.7
+        xpos 90
+        ypos 12
+        matrixcolor InvertMatrix(0.0)*ContrastMatrix(0.7)*SaturationMatrix(0.7)*BrightnessMatrix(-0.2)*HueMatrix(0.0)
+
     pov "{b}*Nods*{/b}"
+
+    hide mineo
+    show mineo neutralopensoft with dissolve:
+        subpixel True 
+        zoom 0.7
+        xpos 90
+        ypos 12
 
     mineo "Good, now I'll showcase some styling/tags options for the dialogue."
 
@@ -81,7 +118,9 @@ label start:
     #Add translation fonts for this part
 
     #Image manipulation module
+    return
 
+label image_manipulation:
     scene bg office with dissolve
 
     show aiji closedeyes with dissolve:
@@ -90,9 +129,9 @@ label start:
         xpos 270
         ypos 12
 
-    aiji "Ren'py also can manipulate images, you can change their size, position, layer position and special effects for every scene."  #SCENE 02
+    aiji "On Ren'py you can change the image's size, position, display order and special effects, on this instance we're using the action editor to streamline the work, so think of image manipulation as timeline with keys, just like a video editor"  #SCENE 02
 
-    aiji "We will start with scale and position"
+    aiji "We will start with default positions"
 
     show aiji closedeyeseyebrowup at center
 
@@ -106,7 +145,7 @@ label start:
 
     aiji "Right position"
 
-    aiji "More specific positions can be determined with the Position method and defining x & y coordinates"
+    aiji "More specific positions can be determined with the Position method and defining x & y coordinates, scale goes the same way so there's no much to explain on that regard"
 
     hide aiji 
 
@@ -116,11 +155,12 @@ label start:
         xpos 90
         ypos 12
 
-    mineo "Of course you can display several characters and non-character images on the screen by using the {u}show{/u} method, depending on the order of the code, the last show method on the code will be over everyone elseon the screen"
+    mineo "Of course you can display several characters and non-character images on the screen by using the {u}show{/u} method, the code will display them in the screen just like they were described in the code"
 
+    aiji "What if you wanna overlap characters then and swap display when talking?"
 
     window auto hide
-    show aiji smirk:
+    show aiji smirk behind mineo:
         subpixel True 
         zoom 0.7
         parallel:
@@ -140,28 +180,29 @@ label start:
         subpixel True 
         pos (0.63, 0.17)
 
-    aiji "This code snippet can let us know that mineo was called first on the script, and then aiji, by default it means aiji will display over mineo on the screen"
+    aiji "This code snippet can let us know that aiji was displayed in the script but respecting the behind argument despite being called later"
 
     hide code_sample_1
-    hide mineo
+    hide aiji
 
-    show mineo neutral2:
+    show aiji smirk:
         subpixel True 
         zoom 0.7
         xpos 90
         ypos 12
 
     show code_sample_2 with dissolve:
-        subpixel True 
+        subpixel True
+        zoom 1.5
         pos (0.63, 0.17)
 
-    mineo "By calling mineo again on the script, it display on top of it again"
+    mineo "By calling aiji again on the script but without the behind word on his statement, it displays on top of it now"
 
-    mineo "This can be used to focus on one character from a group while they are talking"
+    mineo "This could be used to focus on one character from a group while they are talking"
 
-    hide aiji 
+    hide mineo 
     hide code_sample_2
-    show aiji closedeyes:
+    show aiji closedeyes with dissolve:
         subpixel True 
         zoom 0.7
         xpos 270
@@ -179,7 +220,122 @@ label start:
     window auto show
 
     mineo "Image movement across the screen can be used to represent character movement across an scene, this can be in any direction and with any desirable speed"
-    
 
+    show mineo neutral2:
+        subpixel True 
+        xzoom 1.0
+        zoom 0.9
+        parallel:
+            ypos 666 
+            linear 0.4 ypos -60 
+        parallel:
+            alpha 0.4 
+            linear 0.4 alpha 1.0 
+    with Pause(0.4)
+    show mineo neutral2:
+        ypos -60
+        alpha 1.0
+    window auto show
+
+    mineo "Simulating getting closer to the main pov (by telling the sprite to move vertically and scaling up it's size)."
+
+    hide aiji
+    show aiji closedeyeseyebrowup:
+        default subpixel True 
+        ypos 1.0
+        zoom 0.7
+        parallel:
+            xpos 0.75 
+            linear 0.45 xpos 1.2 
+        parallel:
+            alpha 1.0 
+            linear 0.47 alpha 0.5 
+    with Pause(0.50)
+    show aiji closedeyeseyebrowup:
+        pos (1.2, 1.0)
+        alpha 0.5
+    window auto show
+
+    aiji "Leaving the scene."
+
+    image blink:
+        "yanagi aiji/aiji closedeyes.png"
+        0.05
+        "yanagi aiji/aiji concerned.png"
+        5.0
+        repeat
+
+    show blink:
+        subpixel True 
+        zoom 0.7
+        xpos 580
+        ypos 12
+
+    aiji "Cycling over sprites to simulate blinking behavior (wait for it), etc"
+
+    hide mineo
+    show mineo nikoniko:
+        subpixel True 
+        ypos -60
+        xpos 0
+        zoom 0.9
+
+    mineo "Background images do have their own set of effects as well, native to the ren'py engine for classic visual novel effects"
+
+    hide mineo
+    hide aiji 
+    hide blink
+
+    show bg hallway with fade
+
+    "Fade effect"
+
+    show bg office with dissolve
+
+    "Dissolve effect"
+
+    show bg outside with pixellate
+
+    "Pixellate effect, this one can be fine tuned even more for speed and transition behavior"
+
+    show bg stairs with blinds
+
+    "Blinds effect"
+
+    show bg train with squares
+
+    "Squares in effect"
+
+    show bg cabin with wipeleft
+
+    "Wipe effect (can be up, down, left and right)"
+
+    show bg outside with pushright
+
+    "Push away effect (can be up, down, left and right)"
+
+    show bg hallway with slideawayleft
+
+    "Slide effect (can be up, down, left and right)"
+
+    show bg office with irisin
+
+    "Iris effect (either IN or OUT)"
+
+    show aiji surprisedmouthagape:
+        subpixel True 
+        ypos -60
+        xpos 0
+        zoom 0.9
+
+    show bg office with vpunch
+
+    "Shaking backgrounds are also available, to add dramatism in a high tension moment"
+
+    show bg office with hpunch
+
+    "They can either shake horizontally or vertically (mind you, to avoid displaying blank space behind the screen, the background image should be a little bigger than the intended game resolution)"
+
+    hide aiji 
 
     return
