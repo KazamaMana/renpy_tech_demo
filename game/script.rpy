@@ -58,6 +58,8 @@ label start:
             pass
         "User interface":
             pass
+        "Menus and choosing options":
+            pass
 
 label text_styles:
 
@@ -339,3 +341,8 @@ label image_manipulation:
     hide aiji 
 
     return
+
+label audio_sfx:
+    scene bg stairs with dissolve
+
+    
