@@ -53,23 +53,22 @@ label start:
         "Image manipulation":
             jump image_manipulation
         "Music and sfx":
-            pass
+            jump audio_sfx
         "Translation features":
-            pass
-        "User interface":
-            pass
+            jump translation_feature
         "Menus and choosing options":
-            pass
+            jump menu_options
 
 label text_styles:
-
-    show mineo neutralopensoft with dissolve:
+    window auto hide
+    scene bg classroom with dissolve
+    pause
+    "Text style:"
+    show mineo neutralclosedeyes:
         subpixel True 
         zoom 0.7
         xpos 90
         ypos 12
-
-    mineo "Text style:"
 
     mineo "The first thing I would like to talk about is the input command, a lot of VNs out there let the player name their character,is good to know it exists"
 
@@ -86,7 +85,7 @@ label text_styles:
     pov "{b}*Nods*{/b}"
 
     hide mineo
-    show mineo neutralopensoft with dissolve:
+    show mineo neutralopensoft:
         subpixel True 
         zoom 0.7
         xpos 90
@@ -118,13 +117,33 @@ label text_styles:
 
     mineo "{cps=160}or they're full panik trying to explain what the fuck it's going on!{/cps}"
     #Add translation fonts for this part
+    mineo "What do you wanna learn now?"
+    hide mineo 
+    show mineo neutralopensoft:
+        subpixel True 
+        zoom 0.7
+        xpos 90
+        ypos 12
+        matrixcolor InvertMatrix(0.0)*ContrastMatrix(0.7)*SaturationMatrix(0.7)*BrightnessMatrix(-0.2)*HueMatrix(0.0)
 
     #Image manipulation module
-    return
+    menu:
+        "Can you explain me this again?":
+            mineo "Sure thing"
+            jump text_styles
+        "Image manipulation":
+            jump image_manipulation
+        "Music and sfx":
+            jump audio_sfx
+        "Translation features":
+            jump translation_feature
+        "Menus and choosing options":
+            jump menu_options
 
 label image_manipulation:
+    window auto hide
     scene bg office with dissolve
-
+    pause
     show aiji closedeyes with dissolve:
         subpixel True 
         zoom 0.7
@@ -340,9 +359,139 @@ label image_manipulation:
 
     hide aiji 
 
-    return
+    "What do you wanna learn now?"
+    menu:        
+        "Can you explain me this again?":
+            aiji "Sure thing"
+            jump image_manipulation
+        "Text style":
+            jump text_styles
+        "Music and sfx":
+            jump audio_sfx
+        "Translation features":
+            jump translation_feature
+        "Menus and choosing options":
+            jump menu_options
 
 label audio_sfx:
-    scene bg stairs with dissolve
-
+    window auto hide
+    scene bg sunset with fade
+    pause
+    show mineo neutral2 with dissolve:
+        subpixel True 
+        zoom 0.7
+        xpos 270
+        ypos 12
     
+    mineo "Music on the ren'py engine can be easily compared to a group of audio channels of any music mixer software, every channel do have their specific purposes although."
+
+    mineo "Ren'py natively allows you to play music, sounds and voices simultaneously, let me try explaining the available options for every each of them and how can we also define our own."
+
+    play music "audio/05. Tanteitachi No Kyusoku.mp3" volume 0.3 fadeout 2.0 fadein 2.0
+
+    mineo "Hear something?"
+    python:
+        track = renpy.music.get_playing()
+
+    mineo "If you hear this track ([track]), we successfully told ren'py to play such track right now, using the music channel."
+
+    play sound "audio/neighborhood.mp3" volume 0.7 fadein 1.0 fadeout 1.0
+
+    mineo "What about some ambience?"
+
+    hide mineo
+    show mineo smilingclosedeyes:
+        subpixel True 
+        xpos 270
+        zoom 0.7
+        ypos 12
+    pause
+    hide mineo
+    show mineo smile:
+        subpixel True 
+        zoom 0.7
+        xpos 270
+        ypos 12
+
+    mineo "Now it feels like I'm in actual neighborhood, right?"
+
+    voice "audio/enomoto_1.ogg" 
+
+    mineo "And an audible voice?"
+
+    mineo "For obvious reasons there's no fully voiced lines for this Tech demo, but we managed to slap some simple words to decorate the dialogue for this module"
+    hide mineo
+    show mineo lookingawayblush2:
+        subpixel True 
+        zoom 0.7
+        xpos 270
+        ypos 12
+    voice "audio/enomoto_4.ogg"
+    mineo "Sorry"
+    hide mineo
+    show mineo concernedclosedeyes:
+        subpixel True 
+        zoom 0.7
+        xpos 270
+        ypos 12
+
+    mineo "Anyway, going back to the music, if not given any special instruction it will naturally play the song again"
+    window auto hide
+    show mineo neutral2:
+        subpixel True 
+        xpos 270 
+        linear 0.4 xpos 0 
+    show code_sample_3 with dissolve:
+        subpixel True crop_relative True 
+        pos (0.45, 0.54)
+        crop (0.3, 0.0, 1.0, 1.0)
+    with Pause(0.4)
+    show mineo neutral2:
+        xpos 0
+    window auto show
+    mineo "But in this case we're telling ren'py to play the song with a 2 seconds fade in, 2 seconds fade out, and it's playing at a 20 percent volume" 
+    
+    hide code_sample_3
+
+    mineo "In general aspects, ren'py can do the following with audio:{p}Several layers of audio?(even more the ones I mentioned): Check{p}Can we loop music?: Check{p}Play portions of an audio?: Check{p}Queue Audio?:Check"
+
+    "What do you wanna learn now?"
+    menu:        
+        "Can you explain me this again?":
+            mineo "No problem"
+            jump audio_sfx
+        "Text style":
+            jump text_styles
+        "Image manipulation":
+            jump image_manipulation
+        "Translation features":
+            jump translation_feature
+        "Menus and choosing options":
+            jump menu_options
+
+label menu_options:
+    scene bg stairs with blinds
+    "In-game menus and story choices"
+    show aiji eyebrowupclosedmouth with dissolve:
+        subpixel True
+        zoom 0.7
+
+    aiji "Allowing a story to branch mostly relies in-game menus, and we're in good luck because ren'py's way to build an option menu is very straightforward"
+    aiji "But to allow us to understand how this works, I need to set some context on how Ren'py divides acts"
+
+
+    show code_sample_4 with dissolve:
+        subpixel True 
+        pos (0.65, 0.17)
+
+    aiji "Ren'py uses {i}labels{/i} to contain an scene or act, all that happens in that scene is self-contained, all effects, sounds and images that were called inside the label won't cross to the next one"
+    hide aiji
+    show code_sample_5 with dissolve:
+        subpixel True 
+        pos (0.3, 0.17)
+
+    aiji "When we tell ren'py we're making the player choose a path, we're actually making him {i}jump{/i} between labels"
+    return
+    aiji 
+label translation_feature:
+    return
