@@ -1,88 +1,36 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 480, in script
-    aiji "Ren'py uses {i}labels{/i} to contain an scene or act, all that happens in that scene is self-contained, all effects, sounds and images that were called inside the label won't cross to the next one"
-  File "game/ActionEditor.rpy", line 1697, in open_action_editor
-    renpy.call_screen("_new_action_editor")
-  File "renpy/common/00action_other.rpy", line 537, in __call__
-    rv = self.callable(*self.args, **self.kwargs)
-  File "game/ActionEditor.rpy", line 1970, in put_clipboard
-    value_org = state[tag]
-KeyError: u'aiji'
+  File "renpy/common/00keymap.rpy", line 469, in script
+    python hide:
+  File "renpy/common/00keymap.rpy", line 469, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 488, in _execute_python_hide
+    renpy.save("_reload-1", "reload save game")
+AttributeError: 'NoneType' object has no attribute 'stores'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 480, in script
-    aiji "Ren'py uses {i}labels{/i} to contain an scene or act, all that happens in that scene is self-contained, all effects, sounds and images that were called inside the label won't cross to the next one"
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/ast.py", line 736, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/exports.py", line 1419, in say
-    who(what, *args, **kwargs)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/character.py", line 1239, in __call__
-    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/character.py", line 903, in do_display
-    **display_args)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/character.py", line 647, in display_say
-    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/ui.py", line 298, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/core.py", line 3342, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/core.py", line 4179, in interact_core
-    rv = root_widget.event(ev, x, y, 0)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/layout.py", line 1117, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/behavior.py", line 469, in event
-    rv = run(action)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/behavior.py", line 326, in run
-    return action(*args, **kwargs)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/curry.py", line 49, in __call__
-    return self.callable(*(self.args + args), **merged_kwargs)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/game.py", line 285, in invoke_in_new_context
-    return callable(*args, **kwargs)
-  File "game/ActionEditor.rpy", line 1697, in open_action_editor
-    renpy.call_screen("_new_action_editor")
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/exports.py", line 3145, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/ui.py", line 298, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/core.py", line 3342, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/core.py", line 4179, in interact_core
-    rv = root_widget.event(ev, x, y, 0)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/layout.py", line 1117, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/layout.py", line 1117, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/layout.py", line 1117, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/screen.py", line 728, in event
-    rv = self.child.event(ev, x, y, st)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/layout.py", line 1117, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/layout.py", line 1338, in event
-    rv = super(Window, self).event(ev, x, y, st)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/layout.py", line 274, in event
-    rv = d.event(ev, x - xo, y - yo, st)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/layout.py", line 1117, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/layout.py", line 1117, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/behavior.py", line 980, in event
-    return handle_click(self.clicked)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/behavior.py", line 915, in handle_click
-    rv = run(action)
-  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/display/behavior.py", line 326, in run
-    return action(*args, **kwargs)
-  File "renpy/common/00action_other.rpy", line 537, in __call__
-    rv = self.callable(*self.args, **self.kwargs)
-  File "game/ActionEditor.rpy", line 1970, in put_clipboard
-    value_org = state[tag]
-KeyError: u'aiji'
+  File "renpy/common/00keymap.rpy", line 469, in script
+    python hide:
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/ast.py", line 943, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/python.py", line 875, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "renpy/common/00keymap.rpy", line 469, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 488, in _execute_python_hide
+    renpy.save("_reload-1", "reload save game")
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/loadsave.py", line 376, in save
+    roots = renpy.game.log.freeze(None)
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/rollback.py", line 980, in freeze
+    self.complete(False)
+  File "/home/nanaseren/Downloads/renpy-7.4.11-sdk/renpy/rollback.py", line 564, in complete
+    self.current.stores[name], self.current.delta_ebc[name] = sd.get_changes(begin)
+AttributeError: 'NoneType' object has no attribute 'stores'
 
 Linux-5.13.0-28-generic-x86_64-with-debian-bullseye-sid
 Ren'Py 7.5.0.22021101n
 featureDemoProject 1.0
-Thu Feb 17 22:22:57 2022
+Sat Feb 19 00:31:24 2022

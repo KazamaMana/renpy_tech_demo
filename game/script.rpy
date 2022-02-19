@@ -1,6 +1,7 @@
 ﻿# The script of the game goes in this file.
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
+default hidden_story=False
 
 define pov = Character("[povname]")
 
@@ -31,12 +32,9 @@ label start:
 
     # Text styling module
 
-    mineo "This is a demo to showcase the features of Ren'py for future reference, I recommend you to not speed through this demo, as some effects depend on the wait times and such" #SCENE 01
-
+    mineo "This is a demo to showcase the features of Ren'py for future reference, I recommend you to not speed through this demo, as some effects depend on the wait times and such"
     mineo "So be patient while reading this demo project"
-
     mineo "Some descriptions of this features mention coding terms, ask your programming staff for more info or you can read the Ren'Py documentation & tutorial resources"
-
     mineo "What do you wanna learn?"
 
     hide mineo 
@@ -71,7 +69,6 @@ label text_styles:
         ypos 12
 
     mineo "The first thing I would like to talk about is the input command, a lot of VNs out there let the player name their character,is good to know it exists"
-
     mineo "If I wanted to address the player I only need to define the {b}playername{/b} variable and then call it on the dialogue, do you understand {b}[pov]{/b}?"
 
     hide mineo 
@@ -94,27 +91,17 @@ label text_styles:
     mineo "Good, now I'll showcase some styling/tags options for the dialogue."
 
     mineo "This -normal text-, {b}-Bold Text- {i}-Bold Italic Text-{/i}{/b}, {u}-underlined text-{/u}, all of this are identical to what we use on emails/websites/discord, just a matter of placing double brackets at the start and end of a line."
-
     mineo "There is more styles out there, like alpha,{alpha=0.2}This text is barely readable for example.{/alpha}"
-
     mineo "{alpha=*0.5}This text is half as opaque as the default{/alpha}, and so on, we do this by using the alpha tag and defining a number between 0.0 and 1.0."
-
     mineo "Added to that there's line breaks.{space=30}Which can be used.{space=30}Like this."
-
     mineo "There's also this type of break {p}Which can be delivered{p=2.0}Like this"
-
-    mineo "We can even fine tune these dialogue delivery by using a wait tag,{w} so you only can see this after clicking, {w=3.0}or a determined time."
-
+    mineo "We can even fine tune these dialogue delivery by using a wait tag,{w} so you only can see this after clicking(and wait for it, don't click now), {w=3.0}or a determined time."
     mineo "These wait tags are needed if we need to make the auto option on the dialogue {alpha=0.3}or so it seems{/alpha}"
-
     mineo "Colors are used in this way, by adding the same brackets we mentioned before but add a color code like {color=#f00}this,{/color} {color=#fbbd01}we can add more{/color} {color=#08e8de}character to the text.{/color}"
-
     mineo "The color should be in #rgb, {i}#rgba, #rrggbb, or #rrggbbaa{/i}, you can use any hexcolor website for checking those values."
-
+    mineo "Same thing for names on the dialogue, you can see my name on the text windows has an specific color"
     mineo "Next thing is: speed."
-
     mineo "{cps=10}You can dictate the speed of whatever dialogue goes on the screen, perfect for representing people who are taking it's time to talk{/cps}"
-
     mineo "{cps=160}or they're full panik trying to explain what the fuck it's going on!{/cps}"
     #Add translation fonts for this part
     mineo "What do you wanna learn now?"
@@ -150,8 +137,7 @@ label image_manipulation:
         xpos 270
         ypos 12
 
-    aiji "On Ren'py you can change the image's size, position, display order and special effects, on this instance we're using the action editor to streamline the work, so think of image manipulation as timeline with keys, just like a video editor"  #SCENE 02
-
+    aiji "On Ren'py you can change the image's size, position, display order and special effects,{w} on this instance we're using the action editor to streamline the work, so think of image manipulation as timeline with keys, just like a video editor"  #SCENE 02
     aiji "We will start with default positions"
 
     show aiji closedeyeseyebrowup at center
@@ -165,7 +151,6 @@ label image_manipulation:
     show aiji closedeyeseyebrowup at right
 
     aiji "Right position"
-
     aiji "More specific positions can be determined with the Position method and defining x & y coordinates, scale goes the same way so there's no much to explain on that regard"
 
     hide aiji 
@@ -177,7 +162,6 @@ label image_manipulation:
         ypos 12
 
     mineo "Of course you can display several characters and non-character images on the screen by using the {u}show{/u} method, the code will display them in the screen just like they were described in the code"
-
     aiji "What if you wanna overlap characters then and swap display when talking?"
 
     window auto hide
@@ -383,9 +367,8 @@ label audio_sfx:
         xpos 270
         ypos 12
     
-    mineo "Music on the ren'py engine can be easily compared to a group of audio channels of any music mixer software, every channel do have their specific purposes although."
-
-    mineo "Ren'py natively allows you to play music, sounds and voices simultaneously, let me try explaining the available options for every each of them and how can we also define our own."
+    mineo "Music on the ren'py engine can be easily compared to a group of audio channels of any music mixer software,{w} every channel do have their specific purposes although."
+    mineo "Ren'py natively allows you to play music, sounds and voices simultaneously,{w} let me try explaining the available options for every each of them and how can we also define our own."
 
     play music "audio/05. Tanteitachi No Kyusoku.mp3" volume 0.3 fadeout 2.0 fadein 2.0
 
@@ -418,8 +401,8 @@ label audio_sfx:
     voice "audio/enomoto_1.ogg" 
 
     mineo "And an audible voice?"
-
     mineo "For obvious reasons there's no fully voiced lines for this Tech demo, but we managed to slap some simple words to decorate the dialogue for this module"
+
     hide mineo
     show mineo lookingawayblush2:
         subpixel True 
@@ -454,8 +437,12 @@ label audio_sfx:
     hide code_sample_3
 
     mineo "In general aspects, ren'py can do the following with audio:{p}Several layers of audio?(even more the ones I mentioned): Check{p}Can we loop music?: Check{p}Play portions of an audio?: Check{p}Queue Audio?:Check"
-
     "What do you wanna learn now?"
+    show mineo neutral2:
+        subpixel True 
+        xpos 270 
+        xpos 0 
+        matrixcolor InvertMatrix(0.0)*ContrastMatrix(0.7)*SaturationMatrix(0.7)*BrightnessMatrix(-0.2)*HueMatrix(0.0)
     menu:        
         "Can you explain me this again?":
             mineo "No problem"
@@ -470,28 +457,115 @@ label audio_sfx:
             jump menu_options
 
 label menu_options:
-    scene bg stairs with blinds
+    scene bg stairs with fade
     "In-game menus and story choices"
     show aiji eyebrowupclosedmouth with dissolve:
         subpixel True
         zoom 0.7
 
-    aiji "Allowing a story to branch mostly relies in-game menus, and we're in good luck because ren'py's way to build an option menu is very straightforward"
+    aiji "Allowing a story to branch mostly relies in-game menus, and we're in good luck because ren'py's way to build an option menu is very straightforward (kinda)"
     aiji "But to allow us to understand how this works, I need to set some context on how Ren'py divides acts"
-
 
     show code_sample_4 with dissolve:
         subpixel True 
         pos (0.65, 0.17)
 
-    aiji "Ren'py uses {i}labels{/i} to contain an scene or act, all that happens in that scene is self-contained, all effects, sounds and images that were called inside the label won't cross to the next one"
+    aiji "Ren'py uses {i}labels{/i} to contain an a portion of the story, we can create as much labels per needed branches into the story we are telling."
     hide aiji
     show code_sample_5 with dissolve:
         subpixel True 
         pos (0.3, 0.17)
 
     aiji "When we tell ren'py we're making the player choose a path, we're actually making him {i}jump{/i} between labels"
-    return
-    aiji 
+    aiji "But what if you want to unlock certain branches of the story through conditions?{p}Let's try this:"
+    hide code_sample_4
+    hide code_sample_5
+
+    menu hidden_path_activate:
+        "???":
+            $ hidden_story=True
+            aiji "Now, wait for it"
+        "Nothing happens":
+            aiji "Nothing will happen indeed, you gotta pick the {b}???{/b}, you can click back on the options down below or keep going as you will be sent to the module menu."
+
+    if hidden_story==True:
+        aiji "Something should have happened now then"
+        jump menu_options_2
+    else:
+        "What do you wanna learn now?"
+        menu:        
+            "Can you explain me this again?":
+                aiji "No problem"
+                jump menu_options
+            "Text style":
+                jump text_styles
+            "Image manipulation":
+                jump image_manipulation
+            "Translation features":
+                jump translation_feature
+            "Audio and sfx":
+                jump audio_sfx
+
 label translation_feature:
     return
+
+label menu_options_2:
+    show aiji eyebrowupclosedmouth with dissolve:
+        subpixel True
+        zoom 0.7
+    aiji "If you explored both options, you'll realize that actually {b}???{/b} unlocked something different, let's try breaking down what went through this process"
+    show code_sample_6 with dissolve:
+        subpixel True 
+        pos (0.62, 0.04)
+        zoom 1.50
+    aiji "First, we need to tell ren'py there's a condition the player needs to meet in order to unlock an specific branch of the story"
+
+    show code_sample_7 with dissolve:
+        subpixel True 
+        pos (0.59, 0.17)
+        zoom 1.34
+
+    aiji "Then we present the player the option to meet it, of course the player doesn't know, what you see on the menu it's only the text between quotes"
+
+    show code_sample_8 with dissolve:
+        subpixel True 
+        pos (0.47, 0.49)
+        zoom 1.19
+
+    aiji "If the player successfully selected that option, the condition has been met and the player will continue through the branch as we wanted."
+    aiji "What we did was very basic for now as I wanted to show you the direct consequence of meeting a requirement, we can accumulate any number of conditions to unlock a branch in reality"
+    hide code_sample_6
+    hide code_sample_7
+    hide code_sample_8
+
+    show code_sample_9 with dissolve:
+        subpixel True 
+        pos (0.58, 0.15)
+        zoom 1.58
+    show code_sample_10 with dissolve:
+        subpixel True 
+        pos (0.49, 0.4)
+        zoom 1.36
+
+    aiji "And these conditions can be anything that we can think for a story, increasing the affection of characters or asking if the player has items on their inventory"
+    show aiji troubled with dissolve:
+        subpixel True
+        zoom 0.7
+    aiji "These terms might a little more difficult to absorb so don't hesitate to ask staff for clarification."
+    "What do you wanna learn now?"
+    show aiji eyebrowupclosedmouth:
+        subpixel True
+        zoom 0.7
+        matrixcolor InvertMatrix(0.0)*ContrastMatrix(0.7)*SaturationMatrix(0.7)*BrightnessMatrix(-0.2)*HueMatrix(0.0)
+    menu:        
+        "Can you explain me this again?":
+            aiji "Sure thing"
+            jump menu_options
+        "Text style":
+            jump text_styles
+        "Image manipulation":
+            jump image_manipulation
+        "Translation features":
+            jump translation_feature
+        "Audio and sfx":
+            jump audio_sfx
