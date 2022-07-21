@@ -52,6 +52,8 @@ label start:
             jump image_manipulation
         "Music and sfx":
             jump audio_sfx
+        "Translation features":
+            jump translation_feature
         "Menus and choosing options":
             jump menu_options
 
@@ -101,6 +103,7 @@ label text_styles:
     mineo "Next thing is: speed."
     mineo "{cps=10}You can dictate the speed of whatever dialogue goes on the screen, perfect for representing people who are taking it's time to talk{/cps}"
     mineo "{cps=160}or they're full panik trying to explain what the fuck it's going on!{/cps}"
+    #Add translation fonts for this part
     mineo "What do you wanna learn now?"
     hide mineo 
     show mineo neutralopensoft:
@@ -119,6 +122,8 @@ label text_styles:
             jump image_manipulation
         "Music and sfx":
             jump audio_sfx
+        "Translation features":
+            jump translation_feature
         "Menus and choosing options":
             jump menu_options
 
@@ -347,6 +352,8 @@ label image_manipulation:
             jump text_styles
         "Music and sfx":
             jump audio_sfx
+        "Translation features":
+            jump translation_feature
         "Menus and choosing options":
             jump menu_options
 
@@ -436,8 +443,6 @@ label audio_sfx:
         xpos 270 
         xpos 0 
         matrixcolor InvertMatrix(0.0)*ContrastMatrix(0.7)*SaturationMatrix(0.7)*BrightnessMatrix(-0.2)*HueMatrix(0.0)
-    stop sound
-    stop music fadeout 1.0
     menu:        
         "Can you explain me this again?":
             mineo "No problem"
@@ -446,6 +451,8 @@ label audio_sfx:
             jump text_styles
         "Image manipulation":
             jump image_manipulation
+        "Translation features":
+            jump translation_feature
         "Menus and choosing options":
             jump menu_options
 
@@ -494,8 +501,13 @@ label menu_options:
                 jump text_styles
             "Image manipulation":
                 jump image_manipulation
+            "Translation features":
+                jump translation_feature
             "Audio and sfx":
                 jump audio_sfx
+
+label translation_feature:
+    return
 
 label menu_options_2:
     show aiji eyebrowupclosedmouth with dissolve:
@@ -553,5 +565,7 @@ label menu_options_2:
             jump text_styles
         "Image manipulation":
             jump image_manipulation
+        "Translation features":
+            jump translation_feature
         "Audio and sfx":
             jump audio_sfx
