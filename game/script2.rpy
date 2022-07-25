@@ -150,6 +150,9 @@ label image_manipulation:
 
     aiji "Cycling over sprites to simulate blinking behavior (wait for it), etc"
 
+
+
+
     hide mineo
     show mineo nikoniko:
         subpixel True 
@@ -157,7 +160,15 @@ label image_manipulation:
         xpos 0
         zoom 0.9
 
+
+
+
+
     mineo "Background images do have their own set of effects as well, native to the ren'py engine for classic visual novel effects"
+
+
+
+
 
     hide mineo
     hide aiji 
@@ -167,21 +178,28 @@ label image_manipulation:
 
     "Fade effect"
 
+    "Then"
+
     show bg office with dissolve
 
     "Dissolve effect"
-
-    show bg outside with pixellate
-
-    "Pixellate effect, this one can be fine tuned even more for speed and transition behavior"
-
+    
+    "Then"
+    
     show bg stairs with blinds
 
     "Blinds effect"
 
     show bg train with squares
-
+    
     "Squares in effect"
+    
+    show bg outside with pixellate
+
+    "Pixellate effect, this one can be fine tuned even more for speed and transition behavior"
+
+    "Then"
+
 
     show bg cabin with wipeleft
 
