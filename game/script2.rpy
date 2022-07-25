@@ -133,7 +133,7 @@ label image_manipulation:
         alpha 0.5
     window auto show
 
-    aiji "Leaving the scene."
+    aiji "I will be leaving the scene."
 
     image blink:
         "yanagi aiji/aiji closedeyes.png"
